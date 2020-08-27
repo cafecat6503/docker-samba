@@ -8,6 +8,6 @@ services:
           UID: '1000'
     ports:
       - '445:445'
-    volumes: 
+    volumes:
       - /hdd1:/mnt/hdd1
     restart: always
