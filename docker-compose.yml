@@ -2,5 +2,12 @@ version: '3'
 services:
   smb:
     build: .
+      args: 
+          user: cafecat6503
+          password: '!test_tset!'
+          UID: '1000'
     ports:
-      - 445:445
+      - '445:445'
+    volumes: 
+      - /hdd1:/mnt/hdd1
+    restart: always
