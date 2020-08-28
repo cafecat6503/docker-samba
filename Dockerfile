@@ -6,9 +6,9 @@ ARG UID=1000
 
 RUN apk -U upgrade
 RUN apk add samba 
-RUN echo -e '${password}\n${password}\n' | adduser -u &{UID} ${user}
-RUN echo -e '${password}\n${password}\n' | pdbedit -a -u ${user}
+RUN ["/bin/bash", "echo -e '${password}\n${password}\n' | adduser -u &{UID} ${user}"]
+RUN ["/bin/bash", "echo -e '${password}\n${password}\n' | pdbedit -a -u ${user}"]
 
 ADD smb.conf /etc/samba
 
-CMD [ "bash", "-c", "nmbd -D && smbd -F </dev/null" ]
+CMD [ "ash", "-c", "nmbd -D && smbd -F </dev/null" ]
