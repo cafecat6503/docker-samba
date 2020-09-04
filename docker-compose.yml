@@ -1,11 +1,12 @@
 version: '3'
 services:
   smb:
-    build: .
+    build:
+      context: .      
       args:
-        -  user=cafecat6503
-        -  password='!test_tset!'
-        -  UID='1000'
+        - user=cafecat6503
+        - password='!test_tset!'
+        - UID='1000'
     ports:
       - '445:445'
     volumes:
